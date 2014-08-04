@@ -2,7 +2,7 @@ FROM ubuntu:14.04
 MAINTAINER Steinway Wu "http://steinwaywu.com/"
 
 RUN apt-get update
-RUN apt-get install -y libgmp3-dev make gcc build-essential wget bash RUN mkdir /ats2
+RUN apt-get install -y libgmp3-dev make gcc build-essential wget bash 
 
 RUN mkdir /src
 

@@ -9,6 +9,7 @@ RUN mkdir /src
 WORKDIR /ats2
 RUN wget http://sourceforge.net/projects/ats2-lang/files/latest/download?source=files -O - | tar -zvx --strip-components=1 -f -
 RUN ./configure
+RUN make all
 RUN make install
 RUN echo "export PATSHOME=/ats2" > env.sh
 RUN echo "export PATH=$PATH:/ats2/bin" >> env.sh

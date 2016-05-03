@@ -80,7 +80,8 @@ RUN make all
 RUN make all_in_one
 
 # install em
-RUN pip install em
+# RUN apt-get install python-pip
+# RUN pip install em
 
 #RUN echo "export PATSHOME=/ats2" > env.sh
 #RUN echo "export PATSHOMERELOC=/ats2-contrib" >> env.sh

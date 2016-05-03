@@ -9,7 +9,7 @@ RUN wget http://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb
 RUN dpkg -i erlang-solutions_1.0_all.deb
 
 RUN apt-get update
-RUN apt-get install -y libgmp3-dev libgc-dev make gcc build-essential git bash libjson-c-dev esl-erlang elixir
+RUN apt-get install -y libgmp3-dev libgc-dev make gcc build-essential git bash libjson-c-dev esl-erlang elixir pkg-config
 
 # ats2 and contrib source code
 WORKDIR /
@@ -56,13 +56,17 @@ WORKDIR ${PATSHOMERELOC}/projects/MEDIUM/ATS-extsolve-z3
 RUN make build
 RUN mv -f patsolve_z3 ${PATSHOME}/bin
 
+# build parse-emit
+WORKDIR ${PATSHOMERELOC}/projects/MEDIUM/CATS-parsemit
+RUN make DATS_C
+
 # build 2js
 WORKDIR ${PATSHOMERELOC}/projects/MEDIUM/CATS-atsccomp/CATS-atscc2js
 RUN make build
 RUN mv -f atscc2js ${PATSHOME}/bin
 WORKDIR ${PATSHOMERELOC}/contrib/libatscc/libatscc2js
 RUN make all 
-RUN time make all_in_one
+RUN make all_in_one
 
 # build 2erl
 WORKDIR ${PATSHOMERELOC}/projects/MEDIUM/CATS-atsccomp/CATS-atscc2erl 
@@ -73,8 +77,10 @@ RUN make all
 RUN make all_in_one
 WORKDIR ${PATSHOMERELOC}/contrib/libatscc/libatscc2erl/Session 
 RUN make all 
-RUN time make all_in_one
+RUN make all_in_one
 
+# install em
+RUN pip install em
 
 #RUN echo "export PATSHOME=/ats2" > env.sh
 #RUN echo "export PATSHOMERELOC=/ats2-contrib" >> env.sh

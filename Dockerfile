@@ -3,6 +3,7 @@ MAINTAINER Steinway Wu "https://github.com/steinwaywhw/docker-ats"
 
 # for installing erlang/elixir
 WORKDIR /tmp
+RUN apt-get update
 RUN apt-get install -y wget
 RUN wget http://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb
 RUN dpkg -i erlang-solutions_1.0_all.deb

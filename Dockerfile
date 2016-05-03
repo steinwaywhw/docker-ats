@@ -30,6 +30,7 @@ RUN make all
 WORKDIR /
 RUN git clone https://github.com/Z3Prover/z3
 WORKDIR /z3
+RUN apt-get install -y python
 RUN CXX=clang++ CC=clang python scripts/mk_make.py
 WORKDIR /z3/build
 RUN make

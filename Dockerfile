@@ -3,11 +3,12 @@ MAINTAINER Steinway Wu "https://github.com/steinwaywhw/docker-ats"
 
 # for installing erlang/elixir
 WORKDIR /tmp
+RUN apt-get install -y wget
 RUN wget http://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb
 RUN dpkg -i erlang-solutions_1.0_all.deb
 
 RUN apt-get update
-RUN apt-get install -y libgmp3-dev libgc-dev make gcc build-essential wget git bash libjson-c-dev esl-erlang elixir
+RUN apt-get install -y libgmp3-dev libgc-dev make gcc build-essential git bash libjson-c-dev esl-erlang elixir
 
 # ats2 and contrib source code
 WORKDIR /

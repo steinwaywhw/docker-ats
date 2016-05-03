@@ -85,5 +85,5 @@ RUN pip install em
 #RUN echo "export PATSHOME=/ats2" > env.sh
 #RUN echo "export PATSHOMERELOC=/ats2-contrib" >> env.sh
 #RUN echo "export PATH=$PATH:/ats2/bin" >> env.sh
- 
+WORKDIR ${HOME}
 ENTRYPOINT /bin/bash

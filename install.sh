@@ -52,7 +52,9 @@ export ATSHOMERELOC=ATS-${ATSVER}
 ######
 
 git clone https://github.com/githwxi/ATS-Postiats ATS2
+cd ATS2 && git reset --hard 9b0e88a79641a754f1f55f31d3928d87334919b6 && cd ..
 git clone https://github.com/githwxi/ATS-Postiats-contrib.git ATS2-contrib
+cd ATS2-contrib && git reset --hard f5ece05bca615bbb7b896b3699c7a3ca5e929149 && cd ..
 
 ######
 
